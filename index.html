@@ -2,7 +2,7 @@
 <label>Video Url:</label><input id="vidurl">
 <button id="bot">Generate</button>
 <script>
-let iframeTemplate = '<iframe width="560" height="315" src="replacemewithvid?autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+let iframeTemplate = '<div style="display: flex; justify-content: center; margin: auto"><iframe src="replacemewithvid?yt:stretch=16:9&vq=hd720p&autoplay=1&loop=1undefined&color=white&mute=1&iv_load_policy=3&rel=0&showinfo=0&autohide=0&controls=1" width="16" height="16" allowtransparency="true" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen"></iframe></div>';
 
 document.getElementById("bot").onclick = () => {
   const videoUrl = document.getElementById("vidurl").value;
