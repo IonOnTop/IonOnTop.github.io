@@ -1,0 +1,20 @@
+<h1>Ion's Safe Viewbot</h1>
+<label>Video Url:</label><input id="vidurl">
+<button id="bot">Generate</button>
+<script>
+let shit = '<iframe width="560" height="315" src="replacemewithvid?autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+document.getElementById("bot").onclick = () => {
+  function create(htmlStr) {
+    var frag = document.createDocumentFragment(),
+        temp = document.createElement('div');
+    temp.innerHTML = htmlStr;
+    while (temp.firstChild) {
+        frag.appendChild(temp.firstChild);
+    }
+    return frag;
+  }
+  let newshit = shit.replace("replacemewithvid",document.getElementById("vidurl").value)
+  for (let i = 0; i<200; i++) {
+    create(newshit); }
+}
+</script>
