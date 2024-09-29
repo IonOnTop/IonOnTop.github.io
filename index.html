@@ -8,7 +8,7 @@ document.getElementById("bot").onclick = () => {
   const videoUrl = document.getElementById("vidurl").value;
   const newIframe = iframeTemplate.replace("replacemewithvid", videoUrl);
 
-  for (let i = 0; i < 200; i++) {
+  for (let i = 0; i < 16; i++) {
     const frag = document.createDocumentFragment();
     const temp = document.createElement('div');
     temp.innerHTML = newIframe;
