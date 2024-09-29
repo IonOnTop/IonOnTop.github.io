@@ -2,19 +2,24 @@
 <label>Video Url:</label><input id="vidurl">
 <button id="bot">Generate</button>
 <script>
-let shit = '<iframe width="560" height="315" src="replacemewithvid?autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+let iframeTemplate = '<iframe width="560" height="315" src="replacemewithvid?autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+
 document.getElementById("bot").onclick = () => {
-  function create(htmlStr) {
-    var frag = document.createDocumentFragment(),
-        temp = document.createElement('div');
-    temp.innerHTML = htmlStr;
+  const videoUrl = document.getElementById("vidurl").value;
+  const newIframe = iframeTemplate.replace("replacemewithvid", videoUrl);
+
+  for (let i = 0; i < 200; i++) {
+    const frag = document.createDocumentFragment();
+    const temp = document.createElement('div');
+    temp.innerHTML = newIframe;
+
     while (temp.firstChild) {
-        frag.appendChild(temp.firstChild);
+      frag.appendChild(temp.firstChild);
     }
-    return frag;
+
+    // Append the iframe fragment directly to the body
+    document.body.appendChild(frag);
   }
-  let newshit = shit.replace("replacemewithvid",document.getElementById("vidurl").value)
-  for (let i = 0; i<200; i++) {
-    create(newshit); }
-}
+};
+
 </script>
